@@ -423,7 +423,7 @@ Lines.tryClick = function(e, map) {
 
   var foundFeature = false;
   var instance = false;
-  var record = 0.1;
+  var record = 0.00015;
   var settings;
   Lines.instances.forEach(function (_instance) {
     settings = _instance.settings;
@@ -437,6 +437,12 @@ Lines.tryClick = function(e, map) {
           feature.geometry.coordinates[i][0][0], feature.geometry.coordinates[i][0][1],
           feature.geometry.coordinates[i][1][0], feature.geometry.coordinates[i][1][1]);
         if (distance < record) {
+
+          //console.log("width ", width);
+          //console.log("zoom ", zoom);
+          console.log("distance ", distance);
+          console.log("Lines ", Lines);
+          console.log("self ", self);
           record = distance;
           foundFeature = feature;
           instance = _instance;
